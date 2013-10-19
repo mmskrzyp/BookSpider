@@ -4,23 +4,19 @@
 # --- !Ups
 
 create table book (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   title                     varchar(255),
   constraint pk_book primary key (id))
 ;
-
-create sequence book_seq;
 
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists book;
+drop table book;
 
-SET REFERENTIAL_INTEGRITY TRUE;
-
-drop sequence if exists book_seq;
+SET FOREIGN_KEY_CHECKS=1;
 
