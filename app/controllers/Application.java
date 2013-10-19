@@ -1,7 +1,7 @@
 package controllers;
 
 import com.avaje.ebean.Ebean;
-import models.Book;
+import models.Item;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -12,13 +12,13 @@ import java.util.List;
 public class Application extends Controller {
 
     public static Result index() {
-        List<Book> allBooks = Book.find.all();
+        List<Item> allItems = Item.find.all();
 
-        return ok(index.render("My books", Form.form(Book.class), allBooks));
+        return ok(index.render("My items", Form.form(Item.class), allItems));
     }
 
-    public static Result addBook() {
-        Form<Book> form = Form.form(Book.class).bindFromRequest();
+    public static Result addItem() {
+        Form<Item> form = Form.form(Item.class).bindFromRequest();
 
         if (!form.hasErrors()) {
             Ebean.save(form.get());

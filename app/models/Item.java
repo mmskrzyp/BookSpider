@@ -12,13 +12,15 @@ import javax.persistence.Id;
  * Time: 22:20
  */
 @Entity
-public class Book extends Model {
+public class Item extends Model {
 
     @Id
     public Long id;
 
     @Constraints.Required
-    public String title;
+    public String name;
 
-    public static Finder<Long, Book> find = new Finder<Long, Book>(Long.class, Book.class);
+    public String description;
+
+    public static Finder<Long, Item> find = new Finder<Long, Item>(Long.class, Item.class);
 }

@@ -3,10 +3,11 @@
 
 # --- !Ups
 
-create table book (
+create table item (
   id                        bigint auto_increment not null,
-  title                     varchar(255),
-  constraint pk_book primary key (id))
+  name                      varchar(255),
+  description               varchar(255),
+  constraint pk_item primary key (id))
 ;
 
 
@@ -16,7 +17,7 @@ create table book (
 
 SET FOREIGN_KEY_CHECKS=0;
 
-drop table book;
+drop table item;
 
 SET FOREIGN_KEY_CHECKS=1;
 
